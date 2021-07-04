@@ -12,10 +12,11 @@ class CheckSplit: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
 	let vc = ViewController()
 	let tipAmounts = ["15", "18", "20", "22", "0"]
 	var tipAmount = 0
+	var checkAmountCS:Double = 0.0
 	var numberOfPeoplePickerData = [2]
 	
 	@IBOutlet weak var checkAmountTextLabel: UILabel!
-	@IBOutlet weak var checkAmountLabel: UILabel!
+	@IBOutlet weak var checkAmountInputField: UITextField! { didSet {checkAmountInputField?.addDoneToolBar()} }
 	@IBOutlet weak var tipLabel: UILabel!
 	@IBOutlet var tipPickerView: UISegmentedControl!
 	@IBOutlet weak var numPeopleLabel: UILabel!
@@ -25,14 +26,16 @@ class CheckSplit: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
 		super.viewDidLoad()
 		peoplePicker()
 		setup()
-		print("check amount \(vc.checkAmount)")
 	}
 	
 	func setup() {
-		checkAmountTextLabel.text = "Check Amount:"
+		checkAmountTextLabel.text = "$"
 		checkAmountTextLabel.textColor = UIColor.white
-//		checkAmountLabel.text = String(vc.checkAmount)
-		checkAmountLabel.textColor = UIColor.white
+		checkAmountInputField.placeholder = "Enter Check Amount"
+		checkAmountInputField.textColor = UIColor.white
+		checkAmountInputField.layer.borderWidth = 1
+		checkAmountInputField.layer.borderColor = UIColor.white.cgColor
+		checkAmountInputField.layer.cornerRadius = 15
 		tipLabel.text = "Tip Amount:"
 		tipLabel.textColor = UIColor.white
 		tipPickerView = UISegmentedControl(items: tipAmounts)

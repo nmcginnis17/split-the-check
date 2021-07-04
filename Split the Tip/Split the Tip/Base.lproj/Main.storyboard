@@ -281,27 +281,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="SCp-Ji-Z8B">
-                                <rect key="frame" x="10" y="10" width="394" height="35.5"/>
+                                <rect key="frame" x="10" y="10" width="394" height="75"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ujQ-gr-IW0">
-                                        <rect key="frame" x="0.0" y="0.0" width="193" height="35.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ujQ-gr-IW0">
+                                        <rect key="frame" x="0.0" y="0.0" width="35" height="75"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Light" family="Chalkboard SE" pointSize="60"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Check Amount" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="uNM-F8-HEX">
+                                        <rect key="frame" x="43" y="0.0" width="351" height="75"/>
+                                        <color key="backgroundColor" red="0.26404794459999997" green="0.59764397209999998" blue="0.55555873590000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="75" id="Ij1-vl-3Lk"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Light" family="Chalkboard SE" pointSize="20"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RIR-PV-PCk">
-                                        <rect key="frame" x="201" y="0.0" width="193" height="35.5"/>
-                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="25"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                    </textField>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="RIR-PV-PCk" firstAttribute="width" secondItem="ujQ-gr-IW0" secondAttribute="width" id="PYh-WB-HaV"/>
-                                </constraints>
                             </stackView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="0mf-Ay-yfb">
-                                <rect key="frame" x="10" y="109" width="394" height="32"/>
+                                <rect key="frame" x="10" y="148.5" width="394" height="32"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <segments>
                                     <segment title="15%"/>
@@ -312,19 +312,19 @@
                                 </segments>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="29g-NI-xb7">
-                                <rect key="frame" x="10" y="75.5" width="48.5" height="28.5"/>
+                                <rect key="frame" x="10" y="115" width="48.5" height="28.5"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Light" family="Chalkboard SE" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QZ7-1H-Kiy">
-                                <rect key="frame" x="10" y="170" width="48.5" height="28.5"/>
+                                <rect key="frame" x="10" y="209.5" width="48.5" height="28.5"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Light" family="Chalkboard SE" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="85n-fI-jby">
-                                <rect key="frame" x="0.0" y="198.5" width="414" height="216"/>
+                                <rect key="frame" x="0.0" y="238" width="414" height="216"/>
                             </pickerView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="VFD-ER-Pfk"/>
@@ -353,7 +353,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="dg5-Xy-EOj"/>
                     <connections>
-                        <outlet property="checkAmountLabel" destination="RIR-PV-PCk" id="fzK-OX-7AY"/>
+                        <outlet property="checkAmountInputField" destination="uNM-F8-HEX" id="WET-WV-4Lf"/>
                         <outlet property="checkAmountTextLabel" destination="ujQ-gr-IW0" id="Dom-Bf-1oc"/>
                         <outlet property="numPeopleLabel" destination="QZ7-1H-Kiy" id="yG7-T9-pNi"/>
                         <outlet property="numberOfPeoplePicker" destination="85n-fI-jby" id="KgJ-zl-UYL"/>

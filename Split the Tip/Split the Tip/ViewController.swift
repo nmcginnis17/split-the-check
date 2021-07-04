@@ -9,8 +9,6 @@ import UIKit
 
 class ViewController: UIViewController {
 	
-	let cs = CheckSplit()
-	
 	var fifteenTip:Double = 0.0
 	var fifteenTotal:Double = 0.0
 	var eighteenTip:Double = 0.0
@@ -19,7 +17,7 @@ class ViewController: UIViewController {
 	var twentyTotal:Double = 0.0
 	var twentyTwoTip:Double = 0.0
 	var twentyTwoTotal:Double = 0.0
-	var checkAmount: Double = 0.0
+	var checkAmount:Double = 0.0
 	
 	@IBOutlet weak var dollarSign: UILabel!
 	@IBOutlet weak var checkAmountInputField: UITextField! { didSet {checkAmountInputField?.addDoneToolBar()} }
@@ -83,7 +81,7 @@ class ViewController: UIViewController {
 	
 	func calculate() {
 		guard let check = Double((checkAmountInputField?.text)!) else { return }
-		checkAmount = check
+		checkAmount = Double(check)
 		fifteenTip = Double(check * 0.15)
 		fifteenTotal = Double(check * 1.15)
 		eighteenTip = Double(check * 0.18)
@@ -112,9 +110,9 @@ class ViewController: UIViewController {
 	}
 	
 	@IBAction func didTapSplitBtn(_ sender: Any) {
+		checkAmountInputField.resignFirstResponder()
 		calculate()
 		tipTotalLabels()
-		cs.checkAmountLabel.text = checkAmountInputField.text
 	}
 		
 	@IBAction func didTapOtherAppsBtn(_ sender: Any) {
