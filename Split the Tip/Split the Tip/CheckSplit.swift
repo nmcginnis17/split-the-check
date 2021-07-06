@@ -11,16 +11,21 @@ class CheckSplit: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
 		
 	let vc = ViewController()
 	let tipAmounts = ["15", "18", "20", "22", "0"]
-	var tipAmount = 0
+	var tipAmount:Double = 0.0
 	var checkAmountCS:Double = 0.0
+	var checkTotal:Double = 0.0
 	var numberOfPeoplePickerData = [2]
+	var costPerPerson: Double = 0.0
+	var numberOfPeople: Double = 0.0
 	
 	@IBOutlet weak var checkAmountTextLabel: UILabel!
 	@IBOutlet weak var checkAmountInputField: UITextField! { didSet {checkAmountInputField?.addDoneToolBar()} }
 	@IBOutlet weak var tipLabel: UILabel!
-	@IBOutlet var tipPickerView: UISegmentedControl!
 	@IBOutlet weak var numPeopleLabel: UILabel!
 	@IBOutlet var numberOfPeoplePicker: UIPickerView!
+	@IBOutlet weak var calculateButton: UIButton!
+	@IBOutlet weak var totalSplitCostLabel: UILabel!
+	@IBOutlet weak var segmentedControl: UISegmentedControl!
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -38,13 +43,12 @@ class CheckSplit: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
 		checkAmountInputField.layer.cornerRadius = 15
 		tipLabel.text = "Tip Amount:"
 		tipLabel.textColor = UIColor.white
-		tipPickerView = UISegmentedControl(items: tipAmounts)
-		tipPickerView.addTarget(self, action: #selector(tipDidChange(_:)), for: .valueChanged)
 		numPeopleLabel.text = "Split the check with:"
 		numPeopleLabel.textColor = UIColor.white
 		numberOfPeoplePicker.delegate = self
 		numberOfPeoplePicker.dataSource = self
 		numberOfPeoplePicker.setValue(UIColor.white, forKey: "textColor")
+		calculateButton.setTitle("Calculate Total", for: .normal)
 	}
 	
 	
@@ -61,25 +65,53 @@ class CheckSplit: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
 		return row
 	}
 	
+	func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+		numberOfPeople = Double(numberOfPeoplePickerData[row])
+	}
+	
 	func peoplePicker() {
-		for i in 3..<101 {
+		for i in 3..<51 {
 			numberOfPeoplePickerData.append(i)
 		}
 	}
 	
-	@objc func tipDidChange(_ tipPickerView: UISegmentedControl) {
-		switch tipPickerView.selectedSegmentIndex {
+	@IBAction func didTapCalculateButton(_ sender: Any) {
+		calculateTotal()
+	}
+	
+	func calculateTotal() {
+		guard let check = Double((checkAmountInputField?.text)!) else { return	 }
+		if tipAmount == 0.00 {
+			checkTotal = check
+		} else {
+			checkTotal = Double(check * tipAmount)
+		}
+		costPerPerson = Double(checkTotal / numberOfPeople)
+		print("\(numberOfPeople) of people")
+		totalSplitCostLabel.text = String(format: "$%.2f", costPerPerson)
+	}
+	
+	@IBAction func tipAmountChanged(_ sender: Any) {
+		switch segmentedControl.selectedSegmentIndex {
 		case 0:
-			tipAmount = 15
+			tipAmount = 1.15
+			calculateTotal()
 		case 1:
-			tipAmount = 18
+			tipAmount = 1.18
+			calculateTotal()
 		case 2:
-			tipAmount = 20
+			tipAmount = 1.20
+			calculateTotal()
 		case 3:
-			tipAmount = 22
+			tipAmount = 1.22
+			calculateTotal()
+		case 4:
+			tipAmount = 0.00
+			calculateTotal()
 		default:
-			tipAmount = 0
+			break
 		}
 	}
 	
+		
 }
