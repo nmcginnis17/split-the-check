@@ -12,12 +12,12 @@ class CheckSplit: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
 	let vc = ViewController()
 	let tipAmounts = ["15", "18", "20", "22", "0"]
 	var tipAmount:Double = 0.0
-	var checkAmountCS:Double = 0.0
 	var checkTotal:Double = 0.0
 	var numberOfPeoplePickerData = [2]
+	var numberOfPeople: Double = 2.0
 	var costPerPerson: Double = 0.0
-	var numberOfPeople: Double = 0.0
-	
+	var costPerPersonFormatted: String = ""
+		
 	@IBOutlet weak var checkAmountTextLabel: UILabel!
 	@IBOutlet weak var checkAmountInputField: UITextField! { didSet {checkAmountInputField?.addDoneToolBar()} }
 	@IBOutlet weak var tipLabel: UILabel!
@@ -48,7 +48,10 @@ class CheckSplit: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
 		numberOfPeoplePicker.delegate = self
 		numberOfPeoplePicker.dataSource = self
 		numberOfPeoplePicker.setValue(UIColor.white, forKey: "textColor")
+//		numberOfPeoplePicker.selectRow(0, inComponent: 0, animated: true)
+		print(numberOfPeople)
 		calculateButton.setTitle("Calculate Total", for: .normal)
+		totalSplitCostLabel.isHidden = true
 	}
 	
 	
@@ -87,8 +90,9 @@ class CheckSplit: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
 			checkTotal = Double(check * tipAmount)
 		}
 		costPerPerson = Double(checkTotal / numberOfPeople)
-		print("\(numberOfPeople) of people")
-		totalSplitCostLabel.text = String(format: "$%.2f", costPerPerson)
+		costPerPersonFormatted = String(format: "$%.2f", costPerPerson)
+		totalSplitCostLabel.text = "\(costPerPersonFormatted)/person"
+		totalSplitCostLabel.isHidden = false
 	}
 	
 	@IBAction func tipAmountChanged(_ sender: Any) {
