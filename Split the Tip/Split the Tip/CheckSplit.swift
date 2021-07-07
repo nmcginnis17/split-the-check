@@ -23,7 +23,6 @@ class CheckSplit: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
 	@IBOutlet weak var tipLabel: UILabel!
 	@IBOutlet weak var numPeopleLabel: UILabel!
 	@IBOutlet var numberOfPeoplePicker: UIPickerView!
-	@IBOutlet weak var calculateButton: UIButton!
 	@IBOutlet weak var totalSplitCostLabel: UILabel!
 	@IBOutlet weak var segmentedControl: UISegmentedControl!
 	
@@ -48,10 +47,8 @@ class CheckSplit: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
 		numberOfPeoplePicker.delegate = self
 		numberOfPeoplePicker.dataSource = self
 		numberOfPeoplePicker.setValue(UIColor.white, forKey: "textColor")
-//		numberOfPeoplePicker.selectRow(0, inComponent: 0, animated: true)
-		print(numberOfPeople)
-		calculateButton.setTitle("Calculate Total", for: .normal)
 		totalSplitCostLabel.isHidden = true
+		totalSplitCostLabel.textColor = UIColor.white
 	}
 	
 	
@@ -70,16 +67,13 @@ class CheckSplit: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
 	
 	func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
 		numberOfPeople = Double(numberOfPeoplePickerData[row])
+		calculateTotal()
 	}
 	
 	func peoplePicker() {
 		for i in 3..<51 {
 			numberOfPeoplePickerData.append(i)
 		}
-	}
-	
-	@IBAction func didTapCalculateButton(_ sender: Any) {
-		calculateTotal()
 	}
 	
 	func calculateTotal() {

@@ -327,19 +327,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TnG-EJ-dQ6">
-                                <rect key="frame" x="10" y="562" width="394" height="35.5"/>
+                                <rect key="frame" x="10" y="688.5" width="394" height="35.5"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Light" family="Chalkboard SE" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u7A-vR-kpp">
-                                <rect key="frame" x="10" y="464" width="394" height="48"/>
-                                <fontDescription key="fontDescription" name="ChalkboardSE-Light" family="Chalkboard SE" pointSize="25"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="didTapCalculateButton:" destination="CFx-yy-IKS" eventType="touchUpInside" id="c5j-EB-7Zv"/>
-                                </connections>
-                            </button>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="85n-fI-jby">
                                 <rect key="frame" x="0.0" y="238" width="414" height="216"/>
                             </pickerView>
@@ -349,21 +341,18 @@
                         <constraints>
                             <constraint firstItem="VFD-ER-Pfk" firstAttribute="trailing" secondItem="TnG-EJ-dQ6" secondAttribute="trailing" constant="10" id="4d5-oQ-DJJ"/>
                             <constraint firstItem="85n-fI-jby" firstAttribute="top" secondItem="QZ7-1H-Kiy" secondAttribute="bottom" id="70k-fJ-5Tf"/>
-                            <constraint firstItem="TnG-EJ-dQ6" firstAttribute="top" secondItem="u7A-vR-kpp" secondAttribute="bottom" constant="50" id="89W-VF-X2b"/>
                             <constraint firstItem="VFD-ER-Pfk" firstAttribute="trailing" secondItem="SCp-Ji-Z8B" secondAttribute="trailing" constant="10" id="BHk-eo-XQb"/>
                             <constraint firstItem="0mf-Ay-yfb" firstAttribute="leading" secondItem="VFD-ER-Pfk" secondAttribute="leading" constant="10" id="E7A-oY-gT0"/>
-                            <constraint firstItem="VFD-ER-Pfk" firstAttribute="trailing" secondItem="u7A-vR-kpp" secondAttribute="trailing" constant="10" id="F1G-gz-KA1"/>
                             <constraint firstItem="VFD-ER-Pfk" firstAttribute="trailing" secondItem="0mf-Ay-yfb" secondAttribute="trailing" constant="10" id="FUQ-TY-420"/>
                             <constraint firstItem="TnG-EJ-dQ6" firstAttribute="leading" secondItem="VFD-ER-Pfk" secondAttribute="leading" constant="10" id="HFB-nD-cur"/>
                             <constraint firstItem="VFD-ER-Pfk" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="QZ7-1H-Kiy" secondAttribute="trailing" symbolic="YES" id="KyH-Sv-pE1"/>
-                            <constraint firstItem="u7A-vR-kpp" firstAttribute="top" secondItem="85n-fI-jby" secondAttribute="bottom" constant="10" id="LLz-hG-h4F"/>
                             <constraint firstItem="SCp-Ji-Z8B" firstAttribute="leading" secondItem="VFD-ER-Pfk" secondAttribute="leading" constant="10" id="QhT-6C-KL3"/>
                             <constraint firstAttribute="trailing" secondItem="85n-fI-jby" secondAttribute="trailing" id="R0i-zw-B0g"/>
+                            <constraint firstItem="VFD-ER-Pfk" firstAttribute="bottom" secondItem="TnG-EJ-dQ6" secondAttribute="bottom" constant="50" id="Rdu-fk-tdt"/>
                             <constraint firstItem="SCp-Ji-Z8B" firstAttribute="top" secondItem="VFD-ER-Pfk" secondAttribute="top" constant="10" id="bAH-Bv-b56"/>
                             <constraint firstItem="0mf-Ay-yfb" firstAttribute="top" secondItem="29g-NI-xb7" secondAttribute="bottom" constant="5" id="bYd-el-cRD"/>
                             <constraint firstItem="29g-NI-xb7" firstAttribute="top" secondItem="SCp-Ji-Z8B" secondAttribute="bottom" constant="30" id="dRu-7R-B3V"/>
                             <constraint firstItem="29g-NI-xb7" firstAttribute="leading" secondItem="VFD-ER-Pfk" secondAttribute="leading" constant="10" id="eDp-KZ-SdP"/>
-                            <constraint firstItem="u7A-vR-kpp" firstAttribute="leading" secondItem="VFD-ER-Pfk" secondAttribute="leading" constant="10" id="eNn-o8-OT9"/>
                             <constraint firstItem="85n-fI-jby" firstAttribute="leading" secondItem="VFD-ER-Pfk" secondAttribute="leading" id="f2d-ne-EMZ"/>
                             <constraint firstItem="QZ7-1H-Kiy" firstAttribute="top" secondItem="0mf-Ay-yfb" secondAttribute="bottom" constant="30" id="lJ5-gS-c5J"/>
                             <constraint firstItem="85n-fI-jby" firstAttribute="leading" secondItem="VFD-ER-Pfk" secondAttribute="leading" id="lwC-gN-YE6"/>
@@ -376,7 +365,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="dg5-Xy-EOj"/>
                     <connections>
-                        <outlet property="calculateButton" destination="u7A-vR-kpp" id="It2-s6-oF3"/>
                         <outlet property="checkAmountInputField" destination="uNM-F8-HEX" id="WET-WV-4Lf"/>
                         <outlet property="checkAmountTextLabel" destination="ujQ-gr-IW0" id="Dom-Bf-1oc"/>
                         <outlet property="numPeopleLabel" destination="QZ7-1H-Kiy" id="yG7-T9-pNi"/>
